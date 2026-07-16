@@ -102,7 +102,8 @@ app.get("/api/spotify/search", async (req, res) => {
       artist: track.artists?.map((artist) => artist.name).join(", "),
       album: track.album?.name,
       image: track.album?.images?.[0]?.url || null,
-      spotifyUrl: track.external_urls?.spotify || null
+      spotifyUrl: track.external_urls?.spotify || null,
+      previewUrl: track.preview_url || null 
     })) || [];
 
     const artists = data.artists?.items?.map((artist) => ({
